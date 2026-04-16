@@ -16,6 +16,15 @@ export const mockQuests: Quest[] = [
     rating: 4.7,
     isHidden: true,
     energyLevel: 25,
+    address: '142 Basement Level, Morrison Street',
+    hours: 'Mon-Sun: 8am - 10pm',
+    phone: '(555) 234-5678',
+    website: 'https://hiddenvinylcafe.example.com',
+    tips: [
+      'Ask the barista for their "secret menu" vinyl picks',
+      'The corner booth has the best sound system',
+      'Thursday afternoons they play rare jazz imports',
+    ],
   },
   {
     id: 'q2',
@@ -64,6 +73,13 @@ export const mockQuests: Quest[] = [
     rating: 4.6,
     isHidden: false,
     energyLevel: 80,
+    address: 'Corner of 5th Ave & Market Street',
+    hours: 'Friday-Saturday: 6pm - 11pm',
+    tips: [
+      'Arrive around 7pm for the best variety before vendors sell out',
+      'Bring cash - most vendors don\'t take cards',
+      'The Filipino truck at the north end has the best desserts',
+    ],
   },
   {
     id: 'q5',
@@ -96,6 +112,15 @@ export const mockQuests: Quest[] = [
     rating: 4.7,
     isHidden: false,
     energyLevel: 85,
+    address: '789 Pixel Boulevard',
+    hours: 'Mon-Thu: 5pm - 12am, Fri-Sat: 5pm - 2am',
+    phone: '(555) 789-0123',
+    website: 'https://retroarcadebar.example.com',
+    tips: [
+      'Happy hour 5-7pm includes free tokens',
+      'Wednesday nights are tournament nights - get competitive',
+      'The Galaga machine in the back corner is the original from 1981',
+    ],
   },
   {
     id: 'q7',

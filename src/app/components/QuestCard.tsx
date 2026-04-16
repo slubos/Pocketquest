@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { MapPin, Clock, DollarSign, Archive, X, Sparkles } from 'lucide-react';
+import { MapPin, Clock, DollarSign, CheckCircle2, X, Sparkles, Compass } from 'lucide-react';
 import { Quest } from '../types';
 import { useQuest } from '../contexts/QuestContext';
+import { useNavigate } from 'react-router';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface QuestCardProps {
@@ -12,6 +13,7 @@ interface QuestCardProps {
 
 export function QuestCard({ quest, onDismiss, onArchive }: QuestCardProps) {
   const { archiveQuest } = useQuest();
+  const navigate = useNavigate();
 
   const handleArchive = () => {
     archiveQuest(quest.id);
@@ -106,21 +108,33 @@ export function QuestCard({ quest, onDismiss, onArchive }: QuestCardProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-3">
+          {/* Primary CTA */}
           <button
-            onClick={onDismiss}
-            className="flex items-center justify-center gap-2 py-3 px-4 bg-[#2d4a43]/50 border border-[#4a9d7f]/30 text-[#8fb8ac] rounded-lg hover:bg-[#2d4a43] hover:border-[#4a9d7f] transition-all"
+            onClick={() => navigate(`/quest/${quest.id}`)}
+            className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-[#FFA500] to-[#FF8C00] text-[#0f1f1c] rounded-xl font-medium shadow-lg shadow-[#FFA500]/30 hover:shadow-[#FFA500]/50 hover:scale-105 transition-all group"
           >
-            <X className="w-4 h-4" />
-            <span>Not Today</span>
+            <Compass className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            <span className="text-lg">Choose This Adventure</span>
           </button>
-          <button
-            onClick={handleArchive}
-            className="flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-[#FFA500]/20 to-[#FF8C00]/20 border border-[#FFA500]/30 text-[#FFA500] rounded-lg hover:bg-gradient-to-r hover:from-[#FFA500]/30 hover:to-[#FF8C00]/30 hover:border-[#FFA500] transition-all"
-          >
-            <Archive className="w-4 h-4" />
-            <span>The Archive</span>
-          </button>
+          
+          {/* Secondary Actions */}
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={onDismiss}
+              className="flex items-center justify-center gap-2 py-3 px-4 bg-[#2d4a43]/50 border border-[#4a9d7f]/30 text-[#8fb8ac] rounded-lg hover:bg-[#2d4a43] hover:border-[#4a9d7f] transition-all"
+            >
+              <X className="w-4 h-4" />
+              <span>Not Today</span>
+            </button>
+            <button
+              onClick={handleArchive}
+              className="flex items-center justify-center gap-2 py-3 px-4 bg-[#1a2f2a]/50 border border-[#00ff9d]/20 text-[#00ff9d] rounded-lg hover:bg-[#1a2f2a] hover:border-[#00ff9d]/40 transition-all"
+            >
+              <CheckCircle2 className="w-4 h-4" />
+              <span>I Did This!</span>
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

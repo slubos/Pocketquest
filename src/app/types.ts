@@ -22,6 +22,11 @@ export interface Quest {
   rating: number;
   isHidden: boolean; // local secrets
   energyLevel: number; // 0-100
+  address?: string;
+  hours?: string;
+  phone?: string;
+  website?: string;
+  tips?: string[];
 }
 
 export interface FeedbackReason {
