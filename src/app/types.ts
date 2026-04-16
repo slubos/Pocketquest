@@ -1,7 +1,9 @@
 export interface UserProfile {
   mood: number; // 0-100: Low-Key to High-Energy
-  timeWindow: number; // in minutes: 15-180
+  timeWindow: number; // in minutes: 15-240
   budget: 'free' | 'moderate' | 'treat';
+  socialPreference: 'solo' | 'small-group' | 'any-size';
+  activityTypes: string[]; // Selected activity categories
   preferences: string[]; // Learned from feedback
 }
 
