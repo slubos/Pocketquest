@@ -7,7 +7,7 @@ import * as Slider from '@radix-ui/react-slider';
 
 export function Onboarding() {
   const navigate = useNavigate();
-  const { setUserProfile } = useQuest();
+  const { setProfile } = useQuest();
   const [currentStep, setCurrentStep] = useState(0);
 
   // Step 1: Mood/Energy
@@ -54,13 +54,12 @@ export function Onboarding() {
   };
 
   const handleComplete = () => {
-    setUserProfile({
+    setProfile({
       mood,
       timeWindow,
       budget,
       socialPreference,
       activityTypes: activityTypes.length > 0 ? activityTypes : ['culture', 'food', 'nature'],
-      preferences: [],
     });
     navigate('/recommendations');
   };
